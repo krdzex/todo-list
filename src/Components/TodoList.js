@@ -39,8 +39,10 @@ const TodoList = () => {
 
     return (<div>
         <form onSubmit={onSubmitHandler}>
+            
             <input value={inputText} type="text" placeholder="Add your task" onChange={onChangeHandler}></input>
-            <button className="button">Add</button>
+            <button className="button" disabled={inputText === ""}>Add</button>
+            {inputText === "" &&(<span><br/>Task can't be empty :)</span>)}
             <TodoItem deleteItem={deleteItem} todos={todos} />
         </form>
     </div>
